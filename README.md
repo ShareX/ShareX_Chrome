@@ -1,1 +1,0 @@
-# ShareX_Chrome
