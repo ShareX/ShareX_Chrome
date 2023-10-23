@@ -1,7 +1,7 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "ShareX",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Adds 'Upload with ShareX' button to image, video, audio and text selection context menu.",
   "author": "ShareX Team",
   "homepage_url": "https://getsharex.com",
@@ -10,9 +10,11 @@
     "48": "Icons/ShareX-48.png",
     "128": "Icons/ShareX-128.png"
   },
+  "permissions": [
+    "contextMenus",
+    "nativeMessaging"
+  ],
   "background": {
-    "persistent": false,
-    "scripts": [ "eventPage.js" ]
-  },
-  "permissions": [ "contextMenus", "nativeMessaging" ]
+    "service_worker": "eventPage.js"
+  }
 }

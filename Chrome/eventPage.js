@@ -1,14 +1,16 @@
-chrome.contextMenus.create({
-    "id": "ShareX",
-    "title": "Upload with ShareX",
-    "contexts": ["selection", "image", "video", "audio"]
+chrome.runtime.onInstalled.addListener((details) => {
+    chrome.contextMenus.create({
+        "id": "ShareX",
+        "title": "Upload with ShareX",
+        "contexts": ["selection", "image", "video", "audio"]
+    });
 });
 
-chrome.contextMenus.onClicked.addListener(onClicked);
-
-function onClicked(info, tab) {
-    chrome.runtime.sendNativeMessage("com.getsharex.sharex", {
-        URL: info.srcUrl,
-        Text: info.selectionText
-    });
-}
+chrome.contextMenus.onClicked.addListener((info, tab) => {
+    if (info.menuItemId === "ShareX") {
+        chrome.runtime.sendNativeMessage("com.getsharex.sharex", {
+            URL: info.srcUrl,
+            Text: info.selectionText
+        });
+    }
+});
