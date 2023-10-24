@@ -36,32 +36,32 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     switch (info.menuItemId) {
         case "ShareX_Upload_Image":
             chrome.runtime.sendNativeMessage(application, {
-                InputType: "image",
+                ContentType: "Image",
                 URL: info.srcUrl
             });
             break;
         case "ShareX_Upload_Video":
             chrome.runtime.sendNativeMessage(application, {
-                InputType: "video",
+                ContentType: "Video",
                 URL: info.srcUrl
             });
             break;
         case "ShareX_Upload_Audio":
             chrome.runtime.sendNativeMessage(application, {
-                InputType: "audio",
+                ContentType: "Audio",
                 URL: info.srcUrl
             });
             break;
         case "ShareX_Upload_Text":
             chrome.runtime.sendNativeMessage(application, {
-                InputType: "text",
+                ContentType: "Text",
                 Text: info.selectionText
             });
             break;
         case "ShareX_Shorten_URL":
             chrome.runtime.sendNativeMessage(application, {
-                InputType: "link",
-                Link: info.linkUrl
+                ContentType: "Link",
+                URL: info.linkUrl
             });
             break;
     }
